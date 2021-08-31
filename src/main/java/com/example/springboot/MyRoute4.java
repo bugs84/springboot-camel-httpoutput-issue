@@ -38,7 +38,7 @@ public class MyRoute4 extends RouteBuilder {
                 .multicast()
                 .executorService(executorService)
                 .parallelProcessing()
-                .to(synchronizerEndpoint)
+                .to(new String[] { synchronizerEndpoint })
         ;
 
         from(synchronizerEndpoint)

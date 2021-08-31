@@ -27,10 +27,7 @@ public class MyRoute3 extends RouteBuilder {
 
         @Override
         public void process(Exchange exchange) throws Exception {
-            System.out.println("MY PROCESSSOR");
-            exchange.getMessage().setBody("AAAAAAAAAAA");
-
-
+            exchange.getMessage().setBody("Body of response " + System.currentTimeMillis());
         }
     }
 }

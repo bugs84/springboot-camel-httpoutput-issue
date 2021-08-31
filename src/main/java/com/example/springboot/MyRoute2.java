@@ -10,11 +10,11 @@ public class MyRoute2 extends RouteBuilder {
     public void configure() throws Exception {
 //        from("timer:foo").to("log:bar");
 
-//        from("servlet:///my" +
-//                "?httpMethodRestrict=GET" +
-//                //                            "&httpBinding=customHttpBinding" +
-//                "&servletName=CamelServlet"
-//        )
-//                .log("Hello Camel2");
+        from("servlet:///my" +
+                "?httpMethodRestrict=GET" +
+//                                            "&httpBinding=customHttpBinding" +
+                "&servletName=CamelServlet"
+        )
+                .log("YYYYYYYYYYYYYYYYYYYYYYEEEE Hello Camel2");
     }
 }

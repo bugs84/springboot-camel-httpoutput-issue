@@ -10,7 +10,6 @@ public class MyRoute3 extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
-//        from("timer:foo").to("log:bar");
 
         from("servlet:///http" +
                 "?httpMethodRestrict=GET" +

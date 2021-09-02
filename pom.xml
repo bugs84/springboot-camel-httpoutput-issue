@@ -15,7 +15,14 @@
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>11</java.version>
+
+        <!--NOT WORKING-->
         <camel.version>3.11.1</camel.version>
+
+        <!--NOT WORKING-->
+<!--        <camel.version>3.11.0</camel.version>-->
+
+        <!--WORKS FINE-->
         <!--<camel.version>3.10.0</camel.version>-->
     </properties>
     <dependencies>
@@ -49,12 +56,6 @@
             <version>3.0.1</version>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.apache.camel</groupId>-->
-<!--            <artifactId>camel-http</artifactId>-->
-<!--            <version>${camel.version}</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-test-spring</artifactId>

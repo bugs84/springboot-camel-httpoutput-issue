@@ -66,9 +66,16 @@ Here is the repository with the simplified route (branch camel-minimal-sample):
 https://github.com/bugs84/springboot-camel-httpoutput-issue/tree/camel-minimal-sample
  
 ## Steps to reproduce:
-1. Run Application.java
-2. Route configuration is located in HttpOutputIssue.java
-3. Make GET request to http://localhost:8080/camel/httpIssue
+
+**A. by autotest**
+  1. run test `src/test/java/com/example/springboot/HttpOutputIssueTest.java`
+
+**B. manually:**
+  1. Run Application.java
+  2. Route configuration is located in HttpOutputIssue.java
+  3. Make GET request to http://localhost:8080/camel/httpIssue
+
+ 
 
 ### Note
 Version of Camel can be changed in `pom.xml` by property `<camel.version>`

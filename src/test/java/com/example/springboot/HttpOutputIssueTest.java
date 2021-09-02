@@ -21,6 +21,7 @@ class HttpOutputIssueTest {
 
     /**
      * This test works with Camel 3.10.0, but fails with 3.11.0 and 3.11.1
+     * version can be changed in pom.xml in camel.version property
      *
      * Looks like some sort of issue with aggregator
      **/

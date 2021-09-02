@@ -11,7 +11,7 @@ public class MyRoute3 extends RouteBuilder {
     @Override
     public void configure() throws Exception {
 
-        from("servlet:///http" +
+        from("servlet:///http3" +
                 "?httpMethodRestrict=GET" +
                 "&servletName=CamelServlet"
         )

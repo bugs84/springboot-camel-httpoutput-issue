@@ -9,6 +9,6 @@ public class MyComponent {
 
     @PostConstruct
     public void postConstruct(){
-        System.out.println("AAAAAAAAAAAAAAA");
+//        System.out.println("AAAAAAAAAAAAAAA");
     }
 }

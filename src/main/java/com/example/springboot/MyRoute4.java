@@ -26,9 +26,9 @@ public class MyRoute4 extends RouteBuilder {
     public void configure() throws Exception {
         CamelContext context = getContext();
 
-        String parallelSplitterEndpoint = "direct:parallel";
-        String synchronizerEndpoint = "direct:synchronizer";
-        String httpOutputEndpoint = "direct:httpOutput";
+        String parallelSplitterEndpoint = "direct:parallel2";
+        String synchronizerEndpoint = "direct:synchronizer2";
+        String httpOutputEndpoint = "direct:httpOutput2";
 
         var correlationExpression = new ParallelCorrelationExpression();
 

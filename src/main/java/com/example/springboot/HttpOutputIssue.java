@@ -1,6 +1,9 @@
 package com.example.springboot;
 
-import org.apache.camel.*;
+import org.apache.camel.AggregationStrategy;
+import org.apache.camel.Exchange;
+import org.apache.camel.Expression;
+import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.http.common.HttpMessage;
 import org.springframework.stereotype.Component;
@@ -13,7 +16,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @Component
-public class MyRoute5 extends RouteBuilder {
+public class HttpOutputIssue extends RouteBuilder {
     private final ParallelCorrelationExpression correlationExpression = new ParallelCorrelationExpression();
     private final ExecutorService executorService = Executors.newFixedThreadPool(10);
 
@@ -26,7 +29,7 @@ public class MyRoute5 extends RouteBuilder {
         String httpOutputEndpoint = "direct:httpOutput";
 
         // HTTP Input
-        from("servlet:///http5?httpMethodRestrict=GET&servletName=CamelServlet")
+        from("servlet:///httpIssue?httpMethodRestrict=GET&servletName=CamelServlet")
                 .log("Http request received")
                 .process(new CorrelationIdGenerator())
                 .to(parallelSplitterEndpoint);

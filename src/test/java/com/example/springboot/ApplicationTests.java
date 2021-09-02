@@ -7,7 +7,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 class ApplicationTests {
 
 	@Test
-	void contextLoads() {
+	void contextLoads() throws InterruptedException {
+		System.out.println("Test");
+		Thread.sleep(20_000);
 	}
 
 }

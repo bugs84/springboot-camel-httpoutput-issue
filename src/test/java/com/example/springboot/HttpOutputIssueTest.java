@@ -33,7 +33,7 @@ class HttpOutputIssueTest {
                 .fetch()
                 .as(RestResponse.class)
                 .assertStatus(HTTP_OK)
-                .assertBody(equalTo("Response 0"))
+                .assertBody(equalTo("Response 1"))
         ;
     }
 

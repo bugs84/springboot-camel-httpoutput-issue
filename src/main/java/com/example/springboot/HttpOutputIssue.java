@@ -12,19 +12,15 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.nio.charset.StandardCharsets;
 import java.util.UUID;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 @Component
 public class HttpOutputIssue extends RouteBuilder {
     private final ParallelCorrelationExpression correlationExpression = new ParallelCorrelationExpression();
-    private final ExecutorService executorService = Executors.newFixedThreadPool(10);
 
     private String correlationId = null;
 
     @Override
     public void configure() {
-        String parallelSplitterEndpoint = "direct:splitter";
         String synchronizerEndpoint = "direct:synchronizer";
         String httpOutputEndpoint = "direct:httpOutput";
 
@@ -32,15 +28,7 @@ public class HttpOutputIssue extends RouteBuilder {
         from("servlet:///httpIssue?httpMethodRestrict=GET&servletName=CamelServlet")
                 .log("Http request received")
                 .process(new CorrelationIdGenerator())
-                .to(parallelSplitterEndpoint);
-
-        // Parallel Splitter
-        from(parallelSplitterEndpoint)
-                .log("Parallel Splitter")
-                .multicast()
-                .executorService(executorService)
-                .parallelProcessing()
-                .to(new String[]{synchronizerEndpoint});
+                .to(synchronizerEndpoint);
 
         // Parallel Synchronizer
         from(synchronizerEndpoint)
@@ -57,7 +45,7 @@ public class HttpOutputIssue extends RouteBuilder {
     }
 
     private static class ProcessHttpOutput implements Processor {
-        private int i = 0;
+        private int i = 1;
 
         @Override
         public void process(Exchange exchange) throws Exception {
